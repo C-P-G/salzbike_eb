@@ -28,8 +28,8 @@ RUN apt-get update && \
 WORKDIR /your_folder_name
 
 # Copy necessary files
-COPY app.R /your_folder_name/app.R
-COPY data /your_folder_name/data
+COPY app.R /ubuntu_app/app.R
+COPY data /ubuntu_app/data
 
 # Install R packages
 RUN Rscript -e 'install.packages("tmap", dependencies = TRUE) ;     if (!library(tmap, logical.return=TRUE)) quit(status=10)'
@@ -47,11 +47,11 @@ RUN Rscript -e 'install.packages("thematic", dependencies = TRUE) ;     if (!lib
 RUN Rscript -e 'install.packages("RColorBrewer", dependencies = TRUE) ;     if (!library(RColorBrewer, logical.return=TRUE)) quit(status=10)'
 
 # Expose port
-EXPOSE 3838
+EXPOSE 80
 
 #root error logs not into a log but directly to the console 
 ENV SHINY_LOGS_STDERR=1
 
 # Run the app on container start
-CMD ["R", "-e", "shiny::runApp('/your_folder_name', host = '0.0.0.0', port = 3838)"]
+CMD ["R", "-e", "shiny::runApp('/your_folder_name', host = '0.0.0.0', port = 80)"]
 

@@ -84,7 +84,7 @@ layer_name <- "salzbike:FilteredWegenetz_studyarea"
 #define output format of wfs request
 output_format <- "application/json"
 
-wfs_request <- paste0(wfs_url, "?service=WFS&version=1.0.0&request=GetFeature&typeName=", layer_name, "&maxFeatures=5000&outputFormat=", output_format)
+wfs_request <- paste0(wfs_url, "?service=WFS&version=1.0.0&request=GetFeature&typeName=", layer_name, "&maxFeatures=200&outputFormat=", output_format)
 
 # Function to retrieve WFS data and convert to sf object
 getWFSData <- function() {
@@ -127,11 +127,11 @@ ui <- fluidPage(theme = shinytheme("slate"),
                                   fluidRow(
                                     column(6, 
                                            checkboxInput("km_checkbox", 
-                                                         "Filter for top km",
+                                                         "Filter for the top km",
                                                          value = FALSE)),
                                     column(6, 
                                            sliderInput("km_filter",
-                                                       "Filter by Kilometer Length",
+                                                       "Filter by Kilometer",
                                                        min = 0, max = 100, value = c(0, 500),
                                                        step = 5))
                                   ),

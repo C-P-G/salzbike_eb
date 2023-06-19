@@ -1,0 +1,10 @@
+version: '3' # docker version 
+services:
+  shinyapp:
+    build: . #takes the dockerfile from folder
+    ports:
+      - "80:80" #ports
+    volumes:
+      - ./ubuntu_app:/ubuntu_app
+    environment:
+      - SHINY_LOGS_STDERR=1
