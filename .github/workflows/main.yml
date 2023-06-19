@@ -1,0 +1,35 @@
+name: Deploy to Elastic Beanstalk
+
+on:
+  push:
+    branches:
+      - main  # change to your branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        username: cpg3
+        password: dckr_pat_7XUuJnEbtYtZIE5wIeVDJIuxiJQ
+
+    - name: Build and push Docker image
+      run: |
+        docker build -t cpg3/app .
+        docker push cpg3/app
+
+    - name: Deploy to Elastic Beanstalk
+      uses: einaregilsson/beanstalk-deploy@v18
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: shiny_beanstalk  # your Beanstalk application name
+        environment_name: Shinybeanstalk-env  # your Beanstalk environment name
+        version_label: ${{ github.run_id }}
+        region: us-east-1  # your AWS region
+        source_bundle: ./
