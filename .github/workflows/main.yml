@@ -3,7 +3,7 @@ name: Deploy to Elastic Beanstalk
 on:
   push:
     branches:
-      - main  # change to your branch
+      - master  # change to correct main branch
 
 jobs:
   deploy:
