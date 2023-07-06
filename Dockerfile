@@ -25,11 +25,11 @@ RUN apt-get update && \
     apt-get clean
 
 # Set the working directory
-WORKDIR /ubuntu_app
+WORKDIR /salzbike_eb
 
 # Copy necessary files
-COPY app.R /ubuntu_app/app.R
-COPY data /ubuntu_app/data
+COPY app.R /salzbike_eb/app.R
+COPY data /salzbike_eb/data
 
 # Install R packages
 RUN Rscript -e 'install.packages("tmap", dependencies = TRUE) ;     if (!library(tmap, logical.return=TRUE)) quit(status=10)'
@@ -53,5 +53,5 @@ EXPOSE 80
 ENV SHINY_LOGS_STDERR=1
 
 # Run the app on container start
-CMD ["R", "-e", "shiny::runApp('/ubuntu_app', host = '0.0.0.0', port = 80)"]
+CMD ["R", "-e", "shiny::runApp('/salzbike_eb', host = '0.0.0.0', port = 80)"]
 

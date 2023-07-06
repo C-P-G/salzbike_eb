@@ -1,3 +1,5 @@
+Sys.setlocale("LC_ALL", "en_US.UTF-8")
+
 # load libraries ---------------------------------------------------------
 library(shiny)
 library(leaflet)
@@ -17,7 +19,7 @@ library(RColorBrewer)
 trips_bikers <- read.csv("data/Totaltrips_Bikers_studyarea.csv")
 trips_hikers <- read.csv("data/Totaltrips_Hikers_studyarea.csv")
 km <- read.csv2("data/km_studyarea.csv")
-km$ï..OID_ <- NULL
+
 trips_bikers <- rename(trips_bikers, total_bikers = total_trips)
 trips_hikers <- rename(trips_hikers, total_hikers = total_trips)
 
