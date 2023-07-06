@@ -1,17 +1,12 @@
 {
-  "AWSEBDockerrunVersion": 2,
-  "containerDefinitions": [
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "salzbikeshiny",
+    "Update": "true"
+  },
+  "Ports": [
     {
-      "name": "my_container",
-      "image": "salzbikeshiny",
-      "essential": true,
-      "memory": 128,
-      "portMappings": [
-        {
-          "hostPort": 80,
-          "containerPort": 80
-        }
-      ]
+      "ContainerPort": "80"
     }
   ]
 }
