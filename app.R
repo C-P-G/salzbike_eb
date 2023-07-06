@@ -255,7 +255,7 @@ server <- function(input, output, session) {
                      layerId = ~edgeUID,
                      popup = ~paste("Edgeuid: ", as.character(edgeUID), "<br>",
                                     "Gesamtanzahl Radfahrten", as.character(total_bikers), "<br>",
-                                    "Segment Länge (in km):", as.character(km)),
+                                    "Segment Laenge (in km):", as.character(km)),
                      highlightOptions = highlightOptions(color = "yellow",
                                                          weight = 6)
         ) %>% 
@@ -266,7 +266,7 @@ server <- function(input, output, session) {
                      layerId = ~edgeUID,
                      popup = ~paste("Edgeuid: ", as.character(edgeUID), "<br>",
                                     "Gesamtanzahl Wanderungen:", as.character(total_hikers), "<br>",
-                                    "Segment Länge (in km):", as.character(km)),
+                                    "Segment Laenge (in km):", as.character(km)),
                      highlightOptions = highlightOptions(color = "yellow",
                                                          weight = 6))
       
@@ -298,7 +298,7 @@ server <- function(input, output, session) {
   # test edgeuid info 
   output$clicked_segment <- renderText({
     req(input$map_shape_click)
-    paste("Ausgewähltes Segment edgeUID: ", input$map_shape_click$id)
+    paste("Ausgewaehltes Segment edgeUID: ", input$map_shape_click$id)
   })
   
   # Filter dataframes for distribution of edgeuid 
@@ -469,7 +469,7 @@ server <- function(input, output, session) {
                      layerId = ~edgeUID,
                      popup = ~paste("Edgeuid: ", as.character(edgeUID), "<br>",
                                     "Gesamtanzahl Radfahrten", as.character(total_bikers), "<br>",
-                                    "Segment Länge (in km):", as.character(km)),
+                                    "Segment Laenge (in km):", as.character(km)),
                      highlightOptions = highlightOptions(color = "yellow",
                                                          weight = 6)
         ) %>%
@@ -480,7 +480,7 @@ server <- function(input, output, session) {
                      layerId = ~edgeUID,
                      popup = ~paste("Edgeuid: ", as.character(edgeUID), "<br>",
                                     "Gesamtanzahl Wanderungen:", as.character(total_hikers), "<br>",
-                                    "Segment Länge (in km):", as.character(km)),
+                                    "Segment Laenge (in km):", as.character(km)),
                      highlightOptions = highlightOptions(color = "yellow",
                                                          weight = 6)
         )
