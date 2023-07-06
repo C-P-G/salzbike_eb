@@ -25,7 +25,7 @@ RUN apt-get update && \
     apt-get clean
 
 # Set the working directory
-WORKDIR /your_folder_name
+WORKDIR /ubuntu_app
 
 # Copy necessary files
 COPY app.R /ubuntu_app/app.R
@@ -53,5 +53,5 @@ EXPOSE 80
 ENV SHINY_LOGS_STDERR=1
 
 # Run the app on container start
-CMD ["R", "-e", "shiny::runApp('/your_folder_name', host = '0.0.0.0', port = 80)"]
+CMD ["R", "-e", "shiny::runApp('/ubuntu_app', host = '0.0.0.0', port = 80)"]
 
