@@ -88,7 +88,7 @@ output_format <- "application/json"
 
 # for testing set max features to 200 
 # for deploying set to 60000? check again 
-wfs_request <- paste0(wfs_url, "?service=WFS&version=1.0.0&request=GetFeature&typeName=", layer_name, "&maxFeatures=60000&outputFormat=", output_format)
+wfs_request <- paste0(wfs_url, "?service=WFS&version=1.0.0&request=GetFeature&typeName=", layer_name, "&maxFeatures=20000&outputFormat=", output_format)
 
 # Function to retrieve WFS data and convert to sf object
 getWFSData <- function() {
