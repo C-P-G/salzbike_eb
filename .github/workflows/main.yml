@@ -3,7 +3,7 @@ name: Push images to Dockerhub and deploy on Elastic Beanstalk
 on:
   push:
     branches:
-      - master
+      - masters
 
 jobs:
   build_docker_images:
@@ -35,7 +35,7 @@ jobs:
         with:
          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-         application_name: salzbikeeb
-         environment_name: salzbikeeb-env
+         application_name: salzbike
+         environment_name: salzbike-env
          version_label: "app-d5ae-230706_180201548766"
          region: eu-central-1
