@@ -3,13 +3,14 @@ name: Push images to Dockerhub and deploy on Elastic Beanstalk
 on:
   push:
     branches:
-      - master
+      - mastert
 
 jobs:
   build_docker_images:
     name: build docker images
     runs-on: ubuntu-latest
     steps:
+    # clones repository for working with it 
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -23,7 +24,7 @@ jobs:
       - name: Build Server image
         run: docker build -t cpg3/salzbike .
 
-      - name: Tag our Image
+      - name: Tag the Image
         run: docker tag cpg3/salzbike cpg3/salzbike:latest
 
       - name: Push to dockerhub
