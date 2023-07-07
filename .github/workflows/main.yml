@@ -3,7 +3,7 @@ name: Push images to Dockerhub and deploy on Elastic Beanstalk
 on:
   push:
     branches:
-      - mastert
+      - master
 
 jobs:
   build_docker_images:
